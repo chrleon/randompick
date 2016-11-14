@@ -1,16 +1,39 @@
 var gulp = require('gulp'),
-		browsersync = require('browser-sync'),
+		browserSync = require('browser-sync'),
 		sass = require('gulp-sass'),
 		autoprefix = require('autoprefixer'),
 		sass = require('gulp-sass'),
 		postcss = require('gulp-postcss'),
 		sourcemaps = require('gulp-sourcemaps');
 
-// Start a server to preview the site in
-gulp.task('browsersync', function() {
-  browsersync.init({
-    server: './app/'
-  });
+// Static Server + watching scss/html files
+gulp.task('serve', ['html', 'js', 'sass'], function() {
+	browserSync.init({
+		server: "./app"
+	});
+
+		gulp.watch("src/sass/*.scss", ['sass']);
+		gulp.watch("src/*.html", ['html', browserSync.reload]);
+		gulp.watch("src/js/*.js", ['js', browserSync.reload]);
 });
 
-gulp.task('default', ['browsersync']);
+gulp.task('sass', function () {
+	return gulp.src('app/sass/**/*.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass().on('error', sass.logError))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('app/css'))
+		.pipe(browserSync.stream());
+});
+
+gulp.task('html', function(){
+	return gulp.src('src/*.html')
+		.pipe(gulp.dest('app/'));
+});
+
+gulp.task('js', function(){
+	return gulp.src('src/js/*.js')
+		.pipe(gulp.dest('app/js/'));
+});
+
+gulp.task('default', ['serve']);
