@@ -1,0 +1,18 @@
+{
+  "name": "automagic",
+  "version": "1.0.0",
+  "description": "for setting up website projects with browsersync etc",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "christian leon christensen",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.5.3",
+    "browser-sync": "^2.17.6",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0"
+  }
+}
