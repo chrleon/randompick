@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 		sourcemaps = require('gulp-sourcemaps');
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['html', 'js', 'sass'], function() {
+gulp.task('serve', ['html', 'js', 'sass', 'assets'], function() {
 	browserSync.init({
 		server: "./app",
 		open: false,
@@ -23,6 +23,9 @@ gulp.task('serve', ['html', 'js', 'sass'], function() {
 		gulp.watch("src/sass/*.scss", ['sass']);
 		gulp.watch("src/*.html", ['html', browserSync.reload]);
 		gulp.watch("src/js/*.js", ['js', browserSync.reload]);
+		gulp.watch("src/assets/**/*", ['assets', browserSync.reload]);
+
+
 });
 
 gulp.task('sass', function () {
@@ -42,6 +45,11 @@ gulp.task('html', function(){
 gulp.task('js', function(){
 	return gulp.src('src/js/*.js')
 		.pipe(gulp.dest('app/js/'));
+});
+
+gulp.task('assets', function(){
+	return gulp.src('src/assets/**/*')
+		.pipe(gulp.dest('app/assets/'));
 });
 
 gulp.task('default', ['serve']);
