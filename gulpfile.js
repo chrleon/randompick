@@ -29,7 +29,7 @@ gulp.task('serve', ['html', 'js', 'sass', 'assets'], function() {
 });
 
 gulp.task('sass', function () {
-	return gulp.src('app/sass/**/*.scss')
+	return gulp.src('src/sass/**/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(sourcemaps.write())
