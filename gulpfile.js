@@ -2,7 +2,6 @@ var gulp = require('gulp'),
 		browserSync = require('browser-sync'),
 		sass = require('gulp-sass'),
 		autoprefix = require('autoprefixer'),
-		sass = require('gulp-sass'),
 		postcss = require('gulp-postcss'),
 		sourcemaps = require('gulp-sourcemaps');
 
@@ -29,7 +28,7 @@ gulp.task('serve', ['html', 'js', 'sass', 'assets'], function() {
 });
 
 gulp.task('sass', function () {
-	return gulp.src('app/sass/**/*.scss')
+	return gulp.src('src/sass/**/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(sourcemaps.write())
