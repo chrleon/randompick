@@ -27,6 +27,8 @@ var draw = function(){
 }
 
 // eventlisteners
+
+
 document.querySelector('#storesettings').addEventListener('click', function(event){
 	settings.books = Number(document.querySelector('#numbooks').value);
 	settings.tickets = Number(document.querySelector('#numtickets').value);
@@ -38,8 +40,19 @@ document.querySelector('#storesettings').addEventListener('click', function(even
 		eventAction: 'saved',
 		eventLabel: 'ui'
 	});
-
+	// analytics
+	ga('send', 'event', {
+		eventCategory: 'Number of books',
+		eventAction: settings.books,
+		eventLabel: 'Settings'
 	});
+	// analytics
+	ga('send', 'event', {
+		eventCategory: 'Number of tickets',
+		eventAction: settings.tickets,
+		eventLabel: 'Settings'
+	});
+});
 
 document.querySelector('#navbar [href="#settings"]').addEventListener('click', function(){
 	// analytics
