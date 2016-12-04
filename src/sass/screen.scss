@@ -1,5 +1,27 @@
+$purewhite: #fff;
+$white: #fafafa;
+$shadowcolor: rgba(0,0,0,0.3);
+$shadowsize: 8px;
+$animfastest: 0.1s;
+$animfast: 0.3s;
+$animslow: 0.8s;
+$animsuperslow: 12s;
+
+@mixin shadow() {
+	box-shadow: 0 0 $shadowsize $shadowcolor;
+}
+
+@mixin boxz($factor_){
+	$shadowsize: $factor_ * 25px;
+	box-shadow: 0 0 $shadowsize $shadowcolor;
+}
+
 html {
 	font-family: sans-serif;
+}
+
+body {
+	background-color: $white;
 }
 
 .draws {
@@ -8,6 +30,7 @@ html {
 }
 #previous {
 	text-align: center;
+	margin-top: 2em;
 	p {
 		padding-bottom: 0.4em;
 		border-bottom:1px solid rgba(0,0,0,0.3);
@@ -26,4 +49,54 @@ html {
 	line-height: 4;
 	margin: 0 auto;
 	margin-top: 4em;
+}
+
+#navbar {
+	background-color: $purewhite;
+	margin-bottom: 1em;
+	@include shadow();
+	@include boxz(4);
+}
+
+#settings {
+	transition: all $animfast;
+	opacity:0;
+	height: 0;
+	overflow: auto;
+	&:target {
+		opacity: 1;
+		height: 10em;
+		max-height: auto;
+		overflow: visible;
+		display: block;
+		transition: all $animfast;
+		.panel {
+			margin-bottom: 1em;
+			transition: all $animfast;
+			height: auto;
+			max-height: initial;
+			}
+		& + #navbar {
+			display: none;
+		}
+	}
+	.panel {
+		transition: all $animfast;
+		overflow: auto;
+		height: 0;
+		max-height: 0;
+
+		.question {
+			text-align: left;
+		}
+		[type="text"],[type="tel"], {
+			box-sizing: border-box;
+			display: inline-block;
+			height: 48px;
+			text-align: center;
+		}
+		background-color: $purewhite;
+		@include shadow();
+		@include boxz(4);
+	}
 }

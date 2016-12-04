@@ -3,17 +3,60 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css">
 		<link rel="stylesheet" href="css/screen.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	</head>
 	<body>
-		<h1 class="draws">Loddbok nr: <span id="loddbok"></span></h1>
-		<h2 class="draws">Lodd nr: <span id="lodd"></span></h2>
-		<a href="#" id="button">Ny trekning</a>
-		<div id="previous">
 
+		<div class="row expanded" id="settings">
+			<div class="columns small-12 panel">
+				<div class="row">
+					<div class="columns small-9 medium-6 medium-offset-3">
+						<h3>Sett opp antall bøker og lodd</h3>
+						<div class="question">
+							<label for="numbooks">Loddbøker
+								<input type="tel" name="" id="numbooks">
+							</label>
+
+							<label for="numtickets">Lodd per bok
+								<input type="tel" name="" id="numtickets">
+							</label>
+							<a href="#!" class="button" id="storesettings" name="button">Lagre og lukk</a>
+						</div>
+					</div>
+				</div>
+				<ul class="menu align-right">
+					<li>
+						<a href="#!">Lukk innstillinger</a>
+					</li>
+				</ul>
+			</div>
 		</div>
+		<ul id="navbar" class="menu align-right">
+			<li>
+				<a href="#settings">
+					Innstillinger
+				</a>
+			</li>
+		</ul>
+		<div class="row">
+			<div class="columns small-12">
+				<h1 class="draws">Loddbok nr: <span id="loddbok"></span></h1>
+				<h2 class="draws">Lodd nr: <span id="lodd"></span></h2>
+				<a href="#" id="button">Ny trekning</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="columns small-12">
+				<div id="previous">
+
+				</div>
+
+			</div>
+		</div>
+	<script src="js/ga.js" charset="utf-8"></script>
 	<script src="js/index.js" charset="utf-8"></script>
 	</body>
 </html>

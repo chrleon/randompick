@@ -11,10 +11,11 @@ gulp.task('serve', ['html', 'js', 'sass', 'assets'], function() {
 		server: "./app",
 		open: false,
 		cors:true,
+		notify: false,
 	ghostMode: {
 		clicks:true,
 		forms: true,
-		scroll: false
+		scroll: false,
 	}
 
 	});
@@ -52,3 +53,4 @@ gulp.task('assets', function(){
 });
 
 gulp.task('default', ['serve']);
+gulp.task('build',['sass','html','js','assets']);
